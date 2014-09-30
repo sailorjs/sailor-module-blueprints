@@ -1,5 +1,5 @@
 ###
-Module dependencies
+Dependencies
 ###
 sailor     = require 'sailorjs'
 actionUtil = sailor.actionUtil
