@@ -3,7 +3,7 @@ Dependencies
 ###
 sailor     = require 'sailorjs'
 actionUtil = sailor.actionUtil
-_          = require 'sailorjs/node_modules/sailor-scripts/node_modules/sails/node_modules/lodash'
+_          = require 'lodash'
 
 ###*
 Remove a member from an association

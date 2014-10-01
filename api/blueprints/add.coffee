@@ -3,8 +3,8 @@ Dependencies
 ###
 sailor     = require 'sailorjs'
 actionUtil = sailor.actionUtil
-_          = require 'sailorjs/node_modules/sailor-scripts/node_modules/sails/node_modules/lodash'
-async      = require 'sailorjs/node_modules/sailor-scripts/node_modules/sails/node_modules/async'
+_          = require 'lodash'
+async      = require 'async'
 
 ###*
 Add Record To Collection
