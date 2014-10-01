@@ -7,6 +7,10 @@
     "email": "josefrancisco.verdu@gmail.com",
     "url": "https://github.com/Kikobeats"
   },
+  "dependencies": {
+    "lodash": "*",
+    "async": "*"
+  },
   "keywords": [
     "sailor",
     "module",
