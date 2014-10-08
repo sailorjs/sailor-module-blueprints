@@ -1,10 +1,10 @@
 ###
 Dependencies
 ###
-sailor     = require 'sailorjs'
-actionUtil = sailor.actionUtil
 _          = require 'lodash'
 async      = require 'async'
+sailor     = require 'sailorjs'
+actionUtil = sailor.actionUtil
 
 ###*
 Add Record To Collection
@@ -178,6 +178,6 @@ module.exports = (req, res) ->
       # TODO: populateEach
       Model.findOne(parentPk).populate(relation).exec (err, matchingRecord) ->
         return res.serverError(err)  if err
-        return res.serverError()  unless matchingRecord
-        return res.serverError()  unless matchingRecord[relation]
-        res.ok matchingRecord
+        return res.serverError() unless matchingRecord
+        return res.serverError() unless matchingRecord[relation]
+        res.created matchingRecord

@@ -38,6 +38,7 @@ module.exports =  (req, res) ->
   # Lookup for records that match the specified criteria
   query = Model.find().where(actionUtil.parseCriteria(req)).limit(actionUtil.parseLimit(req)).skip(actionUtil.parseSkip(req)).sort(actionUtil.parseSort(req))
   query = query.populateAll()
+
   query.exec (err, matchingRecords) ->
     return res.serverError(err)  if err
 
@@ -51,8 +52,7 @@ module.exports =  (req, res) ->
       _.each matchingRecords, (record) ->
         actionUtil.subscribeDeep req, record
 
-    # if matchingRecords.length is 0
-    #   err = msg: translate.get("Model.NotFound")
-    #   res.notFound(errorify.serialize(err))
-    # else
-    res.ok matchingRecords
+    if matchingRecords.length is 0
+      res.noContent()
+    else
+      res.ok matchingRecords

@@ -46,5 +46,4 @@ module.exports = (req, res) ->
           Model.introduce newInstance
         Model.publishCreate newInstance, not req.options.mirror and req
 
-      res.status 201
-      res.ok newInstance
+      res.created newInstance

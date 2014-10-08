@@ -40,7 +40,11 @@ module.exports = (req, res) ->
   #  integrating with the blueprint API.)
   Model.findOne(pk).populateAll().exec (err, matchingRecord) ->
     return res.serverError(err)  if err
-    return res.notFound()  unless matchingRecord
+
+    unless matchingRecord
+      err = msg: translate.get("Model.NotFound")
+      return res.notFound(errorify.serialize(err))
+
     Model.update(pk, values).exec (err, records) ->
 
       # Differentiate between waterline-originated validation errors
