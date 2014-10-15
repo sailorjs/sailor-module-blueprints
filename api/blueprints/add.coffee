@@ -36,13 +36,11 @@ module.exports = (req, res) ->
   return res.serverError(new Error("Missing required route option, `req.options.alias`.")) unless relation
 
   # The primary key of the parent record
-  parentPk = req.param("parentid")
+  parentPk = req.param 'parentid'
 
   # Get the model class of the child in order to figure out the name of
   # the primary key attribute.
-  associationAttr = _.findWhere(Model.associations,
-    alias: relation
-  )
+  associationAttr = _.findWhere(Model.associations, alias: relation)
   ChildModel = sails.models[associationAttr.collection]
   childPkAttr = ChildModel.primaryKey
 

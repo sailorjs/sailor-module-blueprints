@@ -33,7 +33,7 @@ module.exports =  (req, res) ->
   # to grab the particular instance with its primary key === the value
   # of the `id` param.   (mainly here for compatibility for 0.9, where
   # there was no separate `findOne` action)
-  return require("./findOne")(req, res) if actionUtil.parsePk(req)
+  return require('./findOne')(req, res) if actionUtil.parsePk(req)
 
   # Lookup for records that match the specified criteria
   query = Model.find().where(actionUtil.parseCriteria(req)).limit(actionUtil.parseLimit(req)).skip(actionUtil.parseSkip(req)).sort(actionUtil.parseSort(req))
@@ -52,7 +52,4 @@ module.exports =  (req, res) ->
       _.each matchingRecords, (record) ->
         actionUtil.subscribeDeep req, record
 
-    if matchingRecords.length is 0
-      res.noContent()
-    else
-      res.ok matchingRecords
+    if matchingRecords.length is 0 then res.noContent() else res.ok matchingRecords
