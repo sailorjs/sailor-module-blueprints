@@ -30,7 +30,7 @@ module.exports = (req, res) ->
     return res.serverError(err)  if err
 
     unless matchingRecord
-      err = msg: translate.get("Model.NotFound")
+      err = msg: translate.get('Model.NotFound')
       return res.notFound(errorify.serialize(err))
 
     if sails.hooks.pubsub and req.isSocket
