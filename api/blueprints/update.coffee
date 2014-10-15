@@ -5,7 +5,6 @@ sailor     = require 'sailorjs'
 actionUtil = sailor.actionUtil
 translate  = sailor.translate
 validator  = sailor.validator
-errorify   = sailor.errorify
 
 ###
 Update One Record

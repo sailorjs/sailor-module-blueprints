@@ -1,9 +1,9 @@
 ###
 Dependencies
 ###
+_          = require 'lodash'
 sailor     = require 'sailorjs'
 actionUtil = sailor.actionUtil
-_          = require 'lodash'
 
 ###*
 Remove a member from an association

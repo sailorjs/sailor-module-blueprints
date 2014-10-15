@@ -3,9 +3,6 @@ Dependencies
 ###
 sailor     = require 'sailorjs'
 actionUtil = sailor.actionUtil
-translate  = sailor.translate
-validator  = sailor.validator
-errorify   = sailor.errorify
 
 ###
 Create Record
